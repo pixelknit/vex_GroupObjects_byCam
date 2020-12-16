@@ -1,0 +1,20 @@
+//on a for each prim loop
+//pt wrangle:
+
+string cam = chs('cam');
+vector max = getbbox_max(0);
+vector min = getbbox_min(0);
+
+vector ndcMax = toNDC(cam,max);
+vector ndcMin = toNDC(cam,min);
+
+vector size = ndcMax - ndcMin;
+float screen_area = size.x * size.y;
+if (screen_area<0.0002)
+{
+  @group_small = 1;
+  }
+else
+{
+  @group_big = 1;
+}
